@@ -1,0 +1,19 @@
+{
+  "name": "vidjot",
+  "version": "1.0.0",
+  "description": "A simple node.js app to create and save video/vloq ideas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZiyadGuluzade/vidjot.git"
+  },
+  "author": "Ziyad Guluzade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZiyadGuluzade/vidjot/issues"
+  },
+  "homepage": "https://github.com/ZiyadGuluzade/vidjot#readme"
+}
