@@ -1,0 +1,12 @@
+const express = require('express');
+
+//-initializing the app by setting it to the expess function-//
+const app = express();
+
+const port = 5000;
+
+app.listen(port, () => {
+	console.log(`server started on port ${port}`);
+	//The above line of code is equal to://
+	//console.log("server started on port" + port);//
+});
