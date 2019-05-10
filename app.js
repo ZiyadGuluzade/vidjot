@@ -8,6 +8,16 @@ app.get('/', (req, res) => {
 	res.send('Index route created');
 });
 
+// About route//
+app.get('/about', (req, res) => {
+	res.send('About page created');
+});
+
+// Projects route//
+app.get('/projects', (req, res) => {
+	res.send('Projects will be placed on this page');
+});
+
 const port = 5000;
 
 app.listen(port, () => {
