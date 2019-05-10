@@ -1,25 +1,23 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
 
 //-initializing the app by setting it to the expess function-//
 const app = express();
 
-// Creating a text middleware //
-app.use(function(req, res, next) {
-	//The below line of code gives us current time
-	console.log(Date.now());
-	req.name = 'Ziyad';
-	next();
-});
+// Handlebars middleware //
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // index route //
 app.get('/', (req, res) => {
-	console.log(req.name);
-	res.send('Index route created');
+	const title = 'Title 1';
+	res.render('index', { title: title });
 });
 
 // About route//
 app.get('/about', (req, res) => {
-	res.send(req.name);
+	const about = 'This is a test variable';
+	res.render('about', { about: about });
 });
 
 const port = 5000;
