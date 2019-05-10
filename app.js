@@ -10,13 +10,13 @@ app.set('view engine', 'handlebars');
 
 // index route //
 app.get('/', (req, res) => {
-	const title = 'Title 1';
+	const title = 'Home';
 	res.render('index', { title: title });
 });
 
 // About route//
 app.get('/about', (req, res) => {
-	const about = 'This is a test variable';
+	const about = 'About';
 	res.render('about', { about: about });
 });
 
