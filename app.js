@@ -3,19 +3,23 @@ const express = require('express');
 //-initializing the app by setting it to the expess function-//
 const app = express();
 
+// Creating a text middleware //
+app.use(function(req, res, next) {
+	//The below line of code gives us current time
+	console.log(Date.now());
+	req.name = 'Ziyad';
+	next();
+});
+
 // index route //
 app.get('/', (req, res) => {
+	console.log(req.name);
 	res.send('Index route created');
 });
 
 // About route//
 app.get('/about', (req, res) => {
-	res.send('About page created');
-});
-
-// Projects route//
-app.get('/projects', (req, res) => {
-	res.send('Projects will be placed on this page');
+	res.send(req.name);
 });
 
 const port = 5000;
