@@ -48,7 +48,15 @@ app.get('/ideas/add', (req, res) => {
 
 // Process form //
 app.post('/ideas', (req, res)=>{
-	res.send("ok");
+	let errors = [];
+// Adding server side validation for title
+	if(!req.body.title){
+		errors.push({text: "Please add a title"});
+	}
+// Adding server side validation for details
+	if(!req.body.details){
+		errors.push({text: "Please add some details about your idea"});
+	}
 })
 
 const port = 5000;
