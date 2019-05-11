@@ -31,8 +31,12 @@ app.get('/', (req, res) => {
 
 // About route//
 app.get('/about', (req, res) => {
-	const about = 'About';
-	res.render('about', { about: about });
+	res.render('about');
+});
+
+// Add idead route //
+app.get('/ideas/add', (req, res) => {
+	res.render('ideas/add');
 });
 
 const port = 5000;
