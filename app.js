@@ -13,9 +13,9 @@ mongoose.Promise = global.Promise;
 //Connect to mongoose//
 mongoose
 	.connect('mongodb://localhost/vidjost-dev', {
-		useNewUrlParser : true
+		useNewUrlParser: true
 	})
-	.then(() => console.log('MongoDB connected').catch((err) => console.log(err)));
+	.then(() => console.log('MongoDB connected')).catch((err) => console.log(err));
 
 //Load idea model//
 require('./models/Idea');
@@ -32,7 +32,7 @@ app.use(bodyParser.json())
 
 // index route //
 app.get('/', (req, res) => {
-	const title = 'Home';
+	const title = 'Welcome';
 	res.render('index', { title: title });
 });
 
@@ -41,7 +41,7 @@ app.get('/about', (req, res) => {
 	res.render('about');
 });
 
-// Add idead route //
+// Add idead form
 app.get('/ideas/add', (req, res) => {
 	res.render('ideas/add');
 });
@@ -49,15 +49,23 @@ app.get('/ideas/add', (req, res) => {
 // Process form //
 app.post('/ideas', (req, res)=>{
 	let errors = [];
-// Adding server side validation for title
+// Adding server side validation
 	if(!req.body.title){
 		errors.push({text: "Please add a title"});
 	}
-// Adding server side validation for details
 	if(!req.body.details){
 		errors.push({text: "Please add some details about your idea"});
 	}
-})
+	if(errors.length > 0) {
+		res.render('ideas', {
+			errors: errors,
+			title: req.body.title,
+			details: req.body.details
+		});
+	} else {
+		res.send('passed');
+	}
+});
 
 const port = 5000;
 
